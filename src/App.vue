@@ -1,6 +1,28 @@
-<script setup>
+<script>
+import AppTitle from './components/AppTitle.vue'
+
+export default {
+  components: {
+    AppTitle,
+
+  },
+  data() {
+    return {
+    }
+  },
+  mounted() {
+  }
+}
 </script>
 
-<template></template>
+<template>
+  <header>
+    <AppTitle />
+  </header>
+
+  <main></main>
+
+  <footer></footer>
+</template>
 
 <style scoped></style>
