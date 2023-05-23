@@ -30,10 +30,6 @@ export default {
 </template>
 
 <style scoped>
-.minmaxHeight {
-    min-height: 200px;
-}
-
 .bgColorBody {
     background-color: #D48F38;
 }
