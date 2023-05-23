@@ -13,8 +13,13 @@ export default {
 
 <template>
     <div class="container p-5 ">
-        <div class="row d-flex justify-content-center">
-            <div v-for="card in store.cardElement" class="col-12 col-lg-2">
+        <div class="row">
+            <div class="col-12 bg-black text-white py-3 mb-2">
+                <span class="fw-bold">Found 50 cards</span>
+            </div>
+        </div>
+        <div class="row gap-4 d-flex">
+            <div v-for="card in store.cardElement" class="col-2">
                 <div class="card cardBody ">
                     <img :src="card.card_images[0].image_url">
                     <div class="card-body minmaxHeight">
@@ -30,10 +35,6 @@ export default {
 </template>
 
 <style scoped>
-.card img {
-    width: 100%;
-}
-
 .minmaxHeight {
     min-height: 200px;
     background-color: #D48F38;
