@@ -15,7 +15,7 @@ export default {
     <div class="container p-5">
         <div class="row">
             <div class="col-12 bg-black text-white py-3 mb-2">
-                <span class="fw-bold">Found 50 cards</span>
+                <span class="fw-bold">Found {{ this.store.cardElement.length }} cards</span>
             </div>
         </div>
         <div class="container h-100 row gap-3 bg-white justify-content-between ">

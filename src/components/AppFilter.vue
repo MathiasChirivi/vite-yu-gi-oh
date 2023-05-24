@@ -16,6 +16,10 @@ export default {
         SelectionChange() {
             console.log('Opzione selezionata:', this.selectedOption);
         },
+        handleChange() {
+            this.SelectionChange();
+            this.newArchetype();
+        },
         newArchetype() {
             let addresOfArchetype = this.archeType.urlAPIArche + this.selectedOption;
             this.chiamataArchetipo(addresOfArchetype);
@@ -32,8 +36,9 @@ export default {
 
 <template>
     <div class="container p-5">
-        <select v-model="selectedOption" @change="newArchetype" class="form-select formSelect">
-            <option v-for="archeTypi in archeType.archeTypeList">{{ archeTypi.archetype_name }}</option>
+        <select v-model="selectedOption" @change="handleChange" class="form-select formSelect">
+            <option v-for="archeTypi in archeType.archeTypeList">{{ archeTypi.archetype_name }}
+            </option>
         </select>
     </div>
 </template>
