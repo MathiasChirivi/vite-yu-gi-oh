@@ -1,8 +1,11 @@
 <script>
 import AppTitle from './components/AppTitle.vue'
 import AppMain from './components/AppMain.vue'
+import AppFilter from './components/AppFilter.vue'
 
 import { store } from './data/store';
+import { archeType } from './data/store';
+
 import axios from 'axios';
 
 
@@ -12,20 +15,26 @@ export default {
   components: {
     AppTitle,
     AppMain,
+    AppFilter
 
   },
   data() {
     return {
-      store
+      store,
+      archeType
     }
   },
   mounted() {
     axios.get(this.store.urlAPI).then(r => {
       store.cardElement = r.data.data;
+      this.store.loading = false;
     }).catch(error => {
       console.error("LA chiamata non è andata a buon fine", error);
       store.cardElement = [];
-    })
+    }),
+      axios.get(this.archeType.urlAPI).then(result => {
+        archeType.archeTypeList = result.data;
+      })
   }
 }
 </script>
@@ -36,7 +45,9 @@ export default {
   </header>
 
   <main>
-    <AppMain />
+    <AppFilter />
+    <AppMain v-if="store.loading == false" />
+    <span v-else>Sono in attesa di dati</span>
   </main>
 
   <footer></footer>
