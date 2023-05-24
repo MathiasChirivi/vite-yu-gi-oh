@@ -14,7 +14,7 @@ export default {
     methods: {
         SelectionChange() {
             console.log('Opzione selezionata:', this.selectedOption);
-        }
+        },
     }
 }
 </script>
