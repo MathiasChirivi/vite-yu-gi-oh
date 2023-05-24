@@ -10,4 +10,5 @@ export const archeType = reactive({
     // loading: true,
     urlAPI: "https://db.ygoprodeck.com/api/v7/archetypes.php",
     archeTypeList: [],
+    urlAPIArche: "https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=",
 });

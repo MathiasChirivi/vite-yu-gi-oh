@@ -26,16 +26,13 @@ export default {
   },
   mounted() {
     axios.get(this.store.urlAPI).then(r => {
-      store.cardElement = r.data.data;
-      this.store.loading = false;
-    }).catch(error => {
-      console.error("LA chiamata non è andata a buon fine", error);
-      store.cardElement = [];
-    }),
-      axios.get(this.archeType.urlAPI).then(result => {
-        archeType.archeTypeList = result.data;
-      })
-  }
+      this.store.cardElement = [];
+      this.store.cardElement = r.data.data;
+    })
+    axios.get(this.archeType.urlAPI).then(a => {
+      archeType.archeTypeList = a.data;
+    })
+  },
 }
 </script>
 
@@ -46,8 +43,8 @@ export default {
 
   <main>
     <AppFilter />
-    <AppMain v-if="store.loading == false" />
-    <span v-else>Sono in attesa di dati</span>
+    <AppMain />
+    <!-- <span v-else>Sono in attesa di dati v-if="store.loading == false"</span> -->
   </main>
 
   <footer></footer>
