@@ -22,8 +22,9 @@ export default {
   mounted() {
     axios.get(this.store.urlAPI).then(r => {
       store.cardElement = r.data.data;
-    }).catch(errore => {
-      console.log("Errore di chiamata")
+    }).catch(error => {
+      console.error("LA chiamata non è andata a buon fine", error);
+      store.cardElement = [];
     })
   }
 }
